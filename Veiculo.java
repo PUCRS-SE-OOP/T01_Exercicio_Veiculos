@@ -3,10 +3,12 @@ public class Veiculo{
     private final double tanque = 50; 
     private Placa placa;
     private double combustivel;
+    private double odometro;
     
     public Veiculo(Placa placa){
         this.placa = placa;
         combustivel = 0;
+        odometro = 0;
     }
 
     public void setPais(String pais){
@@ -39,15 +41,17 @@ public class Veiculo{
         // Diminui o combustivel gasto e retorna a distancia percorrida
         if (combustivel >= consumo){
             combustivel -= consumo;
+            odometro += distancia;
             return distancia;
         }else{
             double distPossivel = combustivel * consumoPorLitro;
             combustivel = 0.0;
+            odometro += distPossivel;
             return distPossivel;
         }
     }
 
     public String toString(){
-        return "Placa: "+getPlaca()+", combustivel no tanque: "+getCombustivelNoTanque();
+        return "Placa: "+getPlaca()+", combustivel no tanque: "+getCombustivelNoTanque()+", odometro: "+odometro;
     }
 }
