@@ -79,7 +79,7 @@ public class App{
             }
         }
     in.close();
-    System.out.println("That is just a test;");
+    System.exit(1);
     }
 }
 
